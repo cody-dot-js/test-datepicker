@@ -98,7 +98,6 @@ function Datepicker({ name, onChange }) {
       <input
         ref={monthRef}
         css={inputCss}
-        // name="month"
         onChange={onChangeMonth}
         value={month}
         type="text"
@@ -107,7 +106,6 @@ function Datepicker({ name, onChange }) {
       <input
         ref={dayRef}
         css={inputCss}
-        // name="day"
         onChange={onChangeDay}
         value={day}
         type="text"
@@ -119,7 +117,6 @@ function Datepicker({ name, onChange }) {
           ${inputCss}
           width: 4rem;
         `}
-        // name="year"
         onChange={onChangeYear}
         value={year}
         type="text"
