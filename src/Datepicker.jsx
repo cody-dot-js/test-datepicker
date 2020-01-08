@@ -33,12 +33,14 @@ function Datepicker({ name, onChange }) {
   const dayRef = React.useRef(null);
   const yearRef = React.useRef(null);
 
-  const computedDateValue = React.useMemo(
-    () =>
-      // I know this is supposed to be an ISO format, but whatever
-      `${month}/${day}/${year}`,
-    [day, month, year]
-  );
+  const computedDateValue = React.useMemo(() => {
+    const formattedMonth = month.padStart(2, "0");
+    const formattedDay = day.padStart(2, "0");
+    const formattedYear = year.padStart(4, "0");
+
+    // I know this is supposed to be an ISO format, but whatever
+    return `${formattedMonth}/${formattedDay}/${formattedYear}`;
+  }, [day, month, year]);
 
   const onChangeMonth = React.useCallback(event => {
     const { value } = event.target;
