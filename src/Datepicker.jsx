@@ -105,6 +105,7 @@ function Datepicker({ name, onChange, ...props }) {
 
   const formattedDate = formatDateValue(month, day, year);
 
+  // shouldn't need this if you hoist the state up to the date picker itself
   React.useEffect(() => {
     if (props.month || props.day || props.year) {
       setMonth(props.month);
