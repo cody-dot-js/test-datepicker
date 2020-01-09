@@ -87,6 +87,12 @@ function Datepicker({ name, onChange, ...props }) {
   }, []);
 
   function onChangeDate(event) {
+    // we can't use the actual slice of state here because it
+    // hasn't been updated by react yet: this event handler is run
+    // in the bubble phase from one of the children input onChange events
+    // these are called/ran BEFORE react updates state
+    // if you try to use the state instead of reading the direct ref
+    // values, they will be out of sync and show the previous slice
     const currentMonth = monthRef.current.value;
     const currentDay = dayRef.current.value;
     const currentYear = yearRef.current.value;
